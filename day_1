@@ -1,0 +1,44 @@
+
+
+//part 1
+list1.Sort();
+list2.Sort();
+
+int numnum = 0;
+
+for(int i = 0; i <  list1.Count; i++)
+{
+    var one = list1[i];
+    var two = list2[i];
+
+    
+    if (one > two)
+    {
+        var num = list1[i] - list2[i];
+        numnum += num;
+    }
+    if (one < two)
+    {
+        var num = list2[i] - list1[i];
+        numnum += num;
+    }
+}
+    Console.WriteLine(numnum);
+
+
+//part 2
+
+int result = 0;
+
+foreach(var item in list1)
+{
+    var numberOfinlist = list2.Where(i => i == item).ToList();
+
+    var numberOf = numberOfinlist.Count;
+
+    if(numberOf > 0)
+    {
+        result += item * numberOf;
+        Console.WriteLine("item " + item + " times " + numberOf + " = " + result);
+    } 
+}
